@@ -35,6 +35,10 @@ def assoc_toy(request, finch_id, toy_id):
     Finch.objects.get(id=finch_id).toys.add(toy_id)
     return redirect('detail', finch_id=finch_id)
 
+class ToyCreate(CreateView):
+    model = Toy
+    fields = '__all__'
+    success_url = '/finches'
 
 class FinchCreate(CreateView):
     model = Finch
